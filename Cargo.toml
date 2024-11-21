@@ -24,6 +24,7 @@ rust-version = "1.80.0"
 all-features = true
 
 [dependencies]
+anyhow = "1.0.93"
 
 [dev-dependencies]
 
