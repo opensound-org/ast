@@ -1,15 +1,15 @@
 [package]
-name = "ast"
+name = "est"
 authors = ["29 <791603901@qq.com>"]
 version = "0.0.1"
 license = "MIT/Apache-2.0"
 readme = "README.md"
-keywords = ["std", "anyhow", "result", "collections", "extensions"]
+keywords = ["std", "anyhow", "result", "collections", "indexmap"]
 categories = ["algorithms", "asynchronous", "data-structures", "memory-management", "rust-patterns"]
-repository = "https://github.com/opensound-org/ast"
-homepage = "https://github.com/opensound-org/ast"
+repository = "https://github.com/opensound-org/est"
+homepage = "https://github.com/opensound-org/est"
 description = """
-🚧 Addons for the rust Standard library and Tokio (WIP, nothing usable for now).
+🚧 Extensions for the rust Standard library and Tokio (WIP, nothing usable for now).
 """
 edition = "2021"
 
