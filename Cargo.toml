@@ -1,15 +1,15 @@
 [package]
-name = "template-rs"
+name = "ast"
 authors = ["29 <791603901@qq.com>"]
 version = "0.0.1"
 license = "MIT/Apache-2.0"
 readme = "README.md"
-keywords = ["template"]
-categories = ["multimedia::audio"]
-repository = "https://github.com/opensound-org/template-rs"
-homepage = "https://github.com/opensound-org/template-rs"
+keywords = ["std", "anyhow", "result", "collections", "extensions"]
+categories = ["algorithms", "asynchronous", "data-structures", "memory-management", "rust-patterns"]
+repository = "https://github.com/opensound-org/ast"
+homepage = "https://github.com/opensound-org/ast"
 description = """
-🚧 Template for Rust repositories used by `opensound-org` (WIP, nothing usable for now).
+🚧 Addons for the rust Standard library and Tokio (WIP, nothing usable for now).
 """
 edition = "2021"
 
@@ -24,6 +24,8 @@ rust-version = "1.80.0"
 all-features = true
 
 [dependencies]
+
+[dev-dependencies]
 
 [build-dependencies]
 version_check = "0.9.5"
