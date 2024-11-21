@@ -9,7 +9,7 @@ categories = ["algorithms", "asynchronous", "data-structures", "memory-managemen
 repository = "https://github.com/opensound-org/est"
 homepage = "https://github.com/opensound-org/est"
 description = """
-🚧 Extensions for the rust Standard library and Tokio (WIP, nothing usable for now).
+Extensions for the rust Standard library and Tokio.
 """
 edition = "2021"
 
