@@ -4,7 +4,7 @@
 
 English | [简体中文](README-CN.md)
 
-(WIP) **E**xtensions for the rust **S**tandard library and **T**okio 🚧
+**E**xtensions for the rust **S**tandard library and **T**okio
 
 [Website](https://opensound.run) | [crates.io](https://crates.io/crates/est) | [docs.rs](https://docs.rs/est/latest/est)
 
@@ -27,13 +27,23 @@ Latest version: [v0.0.2](https://github.com/opensound-org/est/releases/tag/v0.0.
 </div>
 
 ## What
-🚧 (WIP) **E**xtensions for the rust **S**tandard library and **T**okio.
+**E**xtensions for the rust **S**tandard library and **T**okio.
+
+Please go to the [docs.rs](https://docs.rs/est/latest/est) page to view details.
 
 ## Why
-🚧 (Under construction...)
+Mainly the lowest level reusable components abstracted during the development process of [opensound-org](https://github.com/orgs/opensound-org/repositories) projects. Of course, others may also find these things useful.
 
 ## How
-🚧 (Under construction...)
+You can:
+```
+cargo add est
+```
+Or in your `Cargo.toml`:
+```toml
+[dependencies]
+filetime_creation = "0.1"
+```
 
 # License
 

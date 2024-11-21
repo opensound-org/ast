@@ -4,7 +4,7 @@
 
 [English](README.md) | 简体中文
 
-（WIP）对 rust **标**准库 和 **T**okio 的 **扩**展 🚧
+对 rust **标**准库 和 **T**okio 的 **扩**展
 
 [官网](https://opensound.run) | [crates.io](https://crates.io/crates/est) | [docs.rs](https://docs.rs/est/latest/est)
 
@@ -27,13 +27,23 @@
 </div>
 
 ## 是什么
-🚧（WIP）对 rust **标**准库 和 **T**okio 的 **扩**展。
+对 rust **标**准库 和 **T**okio 的 **扩**展。
+
+请去 [docs.rs](https://docs.rs/est/latest/est) 页面查看详情。
 
 ## 为什么
-🚧（构建中……）
+主要是 [opensound-org](https://github.com/orgs/opensound-org/repositories) 组织的项目的开发过程中抽象出来的最底层的可复用组件。当然，其他人可能也会发觉这些东西有些用处。
 
 ## 怎么用
-🚧（构建中……）
+您可以：
+```
+cargo add est
+```
+或者在您的 `Cargo.toml` 中：
+```toml
+[dependencies]
+filetime_creation = "0.1"
+```
 
 # 许可证
 
