@@ -42,7 +42,7 @@ cargo add est
 或者在您的 `Cargo.toml` 中：
 ```toml
 [dependencies]
-filetime_creation = "0.1"
+est = "0.1"
 ```
 
 # 许可证

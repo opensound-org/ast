@@ -42,7 +42,7 @@ cargo add est
 Or in your `Cargo.toml`:
 ```toml
 [dependencies]
-filetime_creation = "0.1"
+est = "0.1"
 ```
 
 # License
