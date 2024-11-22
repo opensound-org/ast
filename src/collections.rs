@@ -25,7 +25,9 @@ pub trait MapExt<K, Q: ?Sized = K> {
     ///
     /// If k1 does not exist, return `Err(ReplaceKeyErr::OldKeyNotExist)`.
     ///
-    /// If k1 exists and k2 also exists, return `Err(ReplaceKeyErr::NewKeyOccupied)`.
+    /// Otherwise, if k2 and k1 are equal, do nothing and return `Ok(())`.
+    ///
+    /// Otherwise, if k2 also exists, return `Err(ReplaceKeyErr::NewKeyOccupied)`.
     ///
     /// Otherwise, return `Ok(())` after the replacement is completed.
     fn replace_key(&mut self, k1: &Q, k2: K) -> Result<(), ReplaceKeyErr>
@@ -42,6 +44,10 @@ where
     fn replace_key(&mut self, k1: &Q, k2: K) -> Result<(), ReplaceKeyErr> {
         if !self.contains_key(k1) {
             return Err(ReplaceKeyErr::OldKeyNotExist);
+        }
+
+        if k1 == k2.borrow() {
+            return Ok(());
         }
 
         if self.contains_key(k2.borrow()) {
@@ -62,6 +68,10 @@ where
     fn replace_key(&mut self, k1: &Q, k2: K) -> Result<(), ReplaceKeyErr> {
         if !self.contains_key(k1) {
             return Err(ReplaceKeyErr::OldKeyNotExist);
+        }
+
+        if k1 == k2.borrow() {
+            return Ok(());
         }
 
         if self.contains_key(k2.borrow()) {
@@ -92,9 +102,18 @@ mod tests {
             Err(ReplaceKeyErr::OldKeyNotExist)
         );
         assert_eq!(
+            map.replace_key("k3", "k3".to_string()),
+            Err(ReplaceKeyErr::OldKeyNotExist)
+        );
+        assert_eq!(
             map.replace_key("k3", "k4".to_string()),
             Err(ReplaceKeyErr::OldKeyNotExist)
         );
+
+        let cloned = map.clone();
+        assert_eq!(map.replace_key("k1", "k1".to_string()), Ok(()));
+        assert_eq!(map, cloned);
+
         assert_eq!(
             map.replace_key("k1", "k2".to_string()),
             Err(ReplaceKeyErr::NewKeyOccupied)
@@ -119,9 +138,18 @@ mod tests {
             Err(ReplaceKeyErr::OldKeyNotExist)
         );
         assert_eq!(
+            map.replace_key("k3", "k3".to_string()),
+            Err(ReplaceKeyErr::OldKeyNotExist)
+        );
+        assert_eq!(
             map.replace_key("k3", "k4".to_string()),
             Err(ReplaceKeyErr::OldKeyNotExist)
         );
+
+        let cloned = map.clone();
+        assert_eq!(map.replace_key("k1", "k1".to_string()), Ok(()));
+        assert_eq!(map, cloned);
+
         assert_eq!(
             map.replace_key("k1", "k2".to_string()),
             Err(ReplaceKeyErr::NewKeyOccupied)
