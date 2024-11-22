@@ -25,6 +25,7 @@ all-features = true
 
 [dependencies]
 anyhow = "1.0.93"
+thiserror = "2.0.3"
 
 [dev-dependencies]
 
