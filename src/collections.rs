@@ -1,3 +1,4 @@
+use indexmap::{Equivalent, IndexMap};
 use std::{
     borrow::Borrow,
     collections::{BTreeMap, HashMap},
@@ -84,6 +85,38 @@ where
     }
 }
 
+impl<K, Q, V, S> MapExt<K, Q> for IndexMap<K, V, S>
+where
+    K: Borrow<Q> + Hash + Eq,
+    Q: ?Sized + Hash + Equivalent<K>,
+    S: BuildHasher,
+{
+    fn replace_key(&mut self, k1: &Q, k2: K) -> Result<(), ReplaceKeyErr> {
+        let Some(i) = self.get_index_of(k1) else {
+            return Err(ReplaceKeyErr::OldKeyNotExist);
+        };
+
+        if k1.equivalent(&k2) {
+            return Ok(());
+        }
+
+        if self.contains_key(k2.borrow()) {
+            return Err(ReplaceKeyErr::NewKeyOccupied);
+        }
+
+        // Note, this temporarily displaces the last entry into `i`,
+        // but we'll swap it back after we insert the new key.
+        // See: https://github.com/indexmap-rs/indexmap/issues/362
+        let Some((_, v)) = self.swap_remove_index(i) else {
+            return Err(ReplaceKeyErr::OldKeyNotExist);
+        };
+
+        let (j, _) = self.insert_full(k2, v);
+        self.swap_indices(i, j);
+        Ok(())
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -158,5 +191,47 @@ mod tests {
         assert!(!map.contains_key("k1"));
         assert_eq!(map["k3"], 123);
         assert_eq!(map["k2"], 456);
+    }
+
+    #[test]
+    fn replace_key_indexmap() {
+        let mut map = indexmap::indexmap! {
+            "k1".to_string() => 123,
+            "k2".to_string() => 456
+        };
+
+        assert_eq!(map["k1"], 123);
+        assert_eq!(map["k2"], 456);
+        assert_eq!(map.get_index_of("k1"), Some(0));
+        assert_eq!(map.get_index(0), Some((&"k1".to_string(), &123)));
+
+        assert_eq!(
+            map.replace_key("k3", "k2".to_string()),
+            Err(ReplaceKeyErr::OldKeyNotExist)
+        );
+        assert_eq!(
+            map.replace_key("k3", "k3".to_string()),
+            Err(ReplaceKeyErr::OldKeyNotExist)
+        );
+        assert_eq!(
+            map.replace_key("k3", "k4".to_string()),
+            Err(ReplaceKeyErr::OldKeyNotExist)
+        );
+
+        let cloned = map.clone();
+        assert_eq!(map.replace_key("k1", "k1".to_string()), Ok(()));
+        assert_eq!(map, cloned);
+
+        assert_eq!(
+            map.replace_key("k1", "k2".to_string()),
+            Err(ReplaceKeyErr::NewKeyOccupied)
+        );
+
+        assert_eq!(map.replace_key("k1", "k3".to_string()), Ok(()));
+        assert!(!map.contains_key("k1"));
+        assert_eq!(map["k3"], 123);
+        assert_eq!(map["k2"], 456);
+        assert_eq!(map.get_index_of("k3"), Some(0));
+        assert_eq!(map.get_index(0), Some((&"k3".to_string(), &123)));
     }
 }
