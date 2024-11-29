@@ -22,7 +22,7 @@ Latest version: [v0.4.1](https://github.com/opensound-org/est/releases/tag/v0.4.
 ![MSRV (git)](https://img.shields.io/badge/git--msrv-1.80.0-blue)
 [![dependency status (git)](https://deps.rs/repo/github/opensound-org/est/status.svg?subject=git-deps)](https://deps.rs/repo/github/opensound-org/est)
 
-[![Static Badge](https://img.shields.io/badge/build_with-Rust_1.82.0-dca282)](https://blog.rust-lang.org/2024/10/17/Rust-1.82.0.html)
+[![Static Badge](https://img.shields.io/badge/build_with-Rust_1.83.0-dca282)](https://blog.rust-lang.org/2024/11/28/Rust-1.83.0.html)
 
 </div>
 
