@@ -45,6 +45,10 @@ Or in your `Cargo.toml`:
 est = "0.4"
 ```
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=opensound-org/est&type=Date)](https://star-history.com/#opensound-org/est&Date)
+
 # License
 
 This project is licensed under either of

@@ -45,6 +45,10 @@ cargo add est
 est = "0.4"
 ```
 
+## Star历史
+
+[![Star History Chart](https://api.star-history.com/svg?repos=opensound-org/est&type=Date)](https://star-history.com/#opensound-org/est&Date)
+
 # 许可证
 
 本项目使用以下两种许可之一
