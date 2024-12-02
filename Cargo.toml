@@ -25,7 +25,7 @@ all-features = true
 
 [dependencies]
 anyhow = "1.0.93"
-indexmap = "2.6.0"
+indexmap = "2.7.0"
 thiserror = "2.0.3"
 
 [dev-dependencies]
