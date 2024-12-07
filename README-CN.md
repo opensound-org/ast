@@ -29,7 +29,13 @@
 ## 是什么
 对 rust **标**准库 和 **T**okio 的 **扩**展。
 
-请去 [docs.rs](https://docs.rs/est/latest/est) 页面查看详情。
+部分条目如下：
+- [`AnyRes`](https://docs.rs/est/latest/est/result/type.AnyRes.html)
+- [`collections::MapExt::replace_key()`](https://docs.rs/est/latest/est/collections/trait.MapExt.html#tymethod.replace_key)
+- [`thread::ThreadId`](https://docs.rs/est/latest/est/thread/struct.ThreadId.html)
+- [`task::TaskId`](https://docs.rs/est/latest/est/task/struct.TaskId.html)
+
+请去 [docs.rs](https://docs.rs/est/latest/est) 页面查看更多详情。
 
 ## 为什么
 主要是 [opensound-org](https://github.com/orgs/opensound-org/repositories) 组织的项目的开发过程中抽象出来的最底层的可复用组件。当然，其他人可能也会发觉这些东西有些用处。

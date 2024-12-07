@@ -29,7 +29,13 @@ Latest version: [v0.4.3](https://github.com/opensound-org/est/releases/tag/v0.4.
 ## What
 **E**xtensions for the rust **S**tandard library and **T**okio.
 
-Please go to the [docs.rs](https://docs.rs/est/latest/est) page to view details.
+Some of the items are as follows:
+- [`AnyRes`](https://docs.rs/est/latest/est/result/type.AnyRes.html)
+- [`collections::MapExt::replace_key()`](https://docs.rs/est/latest/est/collections/trait.MapExt.html#tymethod.replace_key)
+- [`thread::ThreadId`](https://docs.rs/est/latest/est/thread/struct.ThreadId.html)
+- [`task::TaskId`](https://docs.rs/est/latest/est/task/struct.TaskId.html)
+
+Please visit the [docs.rs](https://docs.rs/est/latest/est) page for more details.
 
 ## Why
 Mainly the lowest level reusable components abstracted during the development process of [opensound-org](https://github.com/orgs/opensound-org/repositories) projects. Of course, others may also find these things useful.
