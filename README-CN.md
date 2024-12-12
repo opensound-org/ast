@@ -32,8 +32,8 @@
 部分条目如下：
 - [`AnyRes`](https://docs.rs/est/latest/est/result/type.AnyRes.html)
 - [`collections::MapExt::replace_key()`](https://docs.rs/est/latest/est/collections/trait.MapExt.html#tymethod.replace_key)
-- [`thread::ThreadId`](https://docs.rs/est/latest/est/thread/struct.ThreadId.html)
 - [`task::TaskId`](https://docs.rs/est/latest/est/task/struct.TaskId.html)
+- [`thread::ThreadId`](https://docs.rs/est/latest/est/thread/struct.ThreadId.html)
 
 请去 [docs.rs](https://docs.rs/est/latest/est) 页面查看更多详情。
 
